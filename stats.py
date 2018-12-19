@@ -2,15 +2,6 @@
 from google.colab import files
 uploaded = files.upload()
 
-#import modules
-%matplotlib inline
-import numpy as np
-import statsmodels.api as sm
-import pandas as pd
-import matplotlib.pyplot as plt
-import scipy.stats as stats
-from statsmodels.stats.outliers_influence import variance_inflation_factor
-import seaborn as sns
 
 #import modules
 %matplotlib inline
@@ -43,14 +34,12 @@ print(results.summary())
 
 
 #VIF
-
 col_num = model.exog.shape[1] 
 vifs = [variance_inflation_factor(model.exog, i) for i in range(0, col_num)]
 pd.DataFrame(vifs, index=model.exog_names, columns=["VIF"])
 
 
 # linearlity
-
 def plot_scatter(endog):
   
   exog = df.columns[1]
@@ -80,7 +69,6 @@ for i in range(2, length_df):
 
 
 # homoscedasticity
-
 breuschpagan_labal = ['Lagrange multiplier statistic', 'p-value', 'f-value', 'f p-value']
 
 
